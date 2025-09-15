@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu du Bac en ligne</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="page1" class="page">
+<h1>Jeu du Bac</h1>
+<label for="playerCount">Nombre de participants :</label>
+<input type="number" id="playerCount" min="2" max="10" value="2">
+<button id="createGameBtn">Créer la partie</button>
+
+<div id="gameLinkBox" class="hidden">
+<p>Partage ce lien pour que les autres joueurs rejoignent :</p>
+<input type="text" id="gameLink" readonly>
+<button id="copyLinkBtn">Copier le lien</button>
+</div>
+</div>
+
+<div id="page2" class="page hidden">
+<h2>Lettre : <span id="currentLetter"></span></h2>
+<form id="answersForm">
+<label>Pays ou ville: <input type="text" name="paysVille"></label>
+<label>Animaux: <input type="text" name="animaux"></label>
+<label>Fruit ou légume: <input type="text" name="fruitLegume"></label>
+<label>Objet: <input type="text" name="objet"></label>
+<label>Célébrité: <input type="text" name="celeb"></label>
+<label>Nom ou prénom: <input type="text" name="nomPrenom"></label>
+<label>Métier: <input type="text" name="metier"></label>
+</form>
+<button id="stopBtn">STOP</button>
+</div>
+
+<div id="page3" class="page hidden">
+<h2>Classement</h2>
+<ol id="rankingList"></ol>
+<button id="restartBtn">Rejouer</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
