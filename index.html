@@ -65,4 +65,21 @@
 </script>  
 <script src="script.js"></script>
 </body>
+
+<!-- Affichage de la lettre -->
+<h2>La lettre est : <span id="currentLetter">?</span></h2>
+
+<!-- Bouton pour démarrer un tour (clique le host) -->
+<button id="startRoundBtn">Démarrer un tour</button>
+
+<!-- Formulaire pour saisir le mot -->
+<form id="answerForm">
+<input id="answerInput" placeholder="Ton mot..." autocomplete="off" />
+<button type="submit">Valider</button>
+<small id="msg"></small>
+</form>
+
+<!-- inclure ensuite ton script JS -->
+<script type="module" src="app.js"></script>
+  
 </html>
