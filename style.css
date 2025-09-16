@@ -32,3 +32,5 @@ color: #4a235a;
 display: block;
 margin: 5px 0;
 }
+:root { --theme: #f4e1ff; } /* valeur par défaut */
+h1 { color: var(--theme); }
