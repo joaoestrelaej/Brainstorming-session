@@ -1,4 +1,16 @@
-// Import Firebase (modulaire via CDN)
+function isValidWord(rawWord, currentLetter) {
+if (!rawWord) return false;
+const w = normalizeWord(rawWord);
+if (w.length < MIN_WORD_LENGTH) return false;
+if (w.charAt(0).toUpperCase() !== currentLetter.toUpperCase()) return false;
+if (!/^[a-z'-]+$/.test(w)) return false;
+
+// Vérifie dans le dictionnaire
+if (!dictionary.has(w)) return false;
+
+return true;
+}
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
 import {
