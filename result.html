@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résultat Pop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bubbles">
+<div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div>
+</div>
+
+<div class="result-container">
+<h1>Ton mot choisi :</h1>
+<p id="displayWord"></p>
+<a href="index.html" class="back-btn">↩️ Revenir</a>
+</div>
+
+<script>
+const display = document.getElementById('displayWord');
+const word = localStorage.getItem('selectedWord');
+display.textContent = word ? word : "Aucun mot sélectionné";
+</script>
+</body>
+</html>
