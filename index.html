@@ -2,84 +2,57 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeu du Bac en ligne</title>
-<link rel="stylesheet" href="style.css">
+<title>Jeu du Bac</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="page1" class="page">
-<h1>Jeu du Bac</h1>
-<label for="playerCount">Nombre de participants :</label>
-<input type="number" id="playerCount" min="2" max="10" value="2">
-<button id="createGameBtn">Créer la partie</button>
-
-<div id="gameLinkBox" class="hidden">
-<p>Partage ce lien pour que les autres joueurs rejoignent :</p>
-<input type="text" id="gameLink" readonly>
-<button id="copyLinkBtn">Copier le lien</button>
-</div>
-</div>
-
-<div id="page2" class="page hidden">
-<h2>Lettre : <span id="currentLetter"></span></h2>
-<form id="answersForm">
-<label>Pays ou ville: <input type="text" name="paysVille"></label>
-<label>Animaux: <input type="text" name="animaux"></label>
-<label>Fruit ou légume: <input type="text" name="fruitLegume"></label>
-<label>Objet: <input type="text" name="objet"></label>
-<label>Célébrité: <input type="text" name="celeb"></label>
-<label>Nom ou prénom: <input type="text" name="nomPrenom"></label>
-<label>Métier: <input type="text" name="metier"></label>
-</form>
-<button id="stopBtn">STOP</button>
-</div>
-
-<div id="page3" class="page hidden">
-<h2>Classement</h2>
-<ol id="rankingList"></ol>
-<button id="restartBtn">Rejouer</button>
-</div>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCibEnPhUQhsNNo5hPiKBPql2WBwXP152c",
-    authDomain: "brainstorming-session.firebaseapp.com",
-    projectId: "brainstorming-session",
-    storageBucket: "brainstorming-session.firebasestorage.app",
-    messagingSenderId: "460606677928",
-    appId: "1:460606677928:web:5c138dc29809de2d4db39d"
-  };
-
-
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>  
-<script src="script.js"></script>
-</body>
-
-<!-- Affichage de la lettre -->
+<header>
+<h1>JEU DU BAC</h1>
 <h2>La lettre est : <span id="currentLetter">?</span></h2>
+<button id="startRoundBtn">🎲 Démarrer un tour</button>
+</header>
 
-<!-- Bouton pour démarrer un tour (clique le host) -->
-<button id="startRoundBtn">Démarrer un tour</button>
+<!-- Grille des lettres -->
+<section class="letters">
+<div>A</div><div>B</div><div>C</div><div>D</div><div>E</div><div>F</div>
+<div>G</div><div>H</div><div>I</div><div>J</div><div>K</div><div>L</div>
+<div>M</div><div>N</div><div>O</div><div>P</div><div>Q</div><div>R</div>
+<div>S</div><div>T</div><div>U</div><div>V</div><div>W</div><div>X</div>
+</section>
 
-<!-- Formulaire pour saisir le mot -->
+<!-- Tableau des scores -->
+<section>
+<h3>Tableau des scores</h3>
+<table id="scoreboard">
+<thead>
+<tr>
+<th>Joueur 1</th>
+<th>Joueur 2</th>
+<th>Joueur 3</th>
+<th>Joueur 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="p1">0</td>
+<td id="p2">0</td>
+<td id="p3">0</td>
+<td id="p4">0</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- Formulaire pour saisir un mot -->
+<section>
 <form id="answerForm">
-<input id="answerInput" placeholder="Ton mot..." autocomplete="off" />
+<input id="answerInput" placeholder="Écris ton mot..." autocomplete="off" />
 <button type="submit">Valider</button>
 <small id="msg"></small>
 </form>
+</section>
 
-<!-- inclure ensuite ton script JS -->
+<!-- Script principal -->
 <script type="module" src="app.js"></script>
-  
+</body>
 </html>
