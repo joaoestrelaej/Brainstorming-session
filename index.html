@@ -2,57 +2,47 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Jeu du Bac</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu de Mots Pop</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<h1>JEU DU BAC</h1>
-<h2>La lettre est : <span id="currentLetter">?</span></h2>
-<button id="startRoundBtn">🎲 Démarrer un tour</button>
-</header>
+<!-- Bulles animées en arrière-plan -->
+<div class="bubbles">
+<div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div>
+</div>
 
-<!-- Grille des lettres -->
-<section class="letters">
-<div>A</div><div>B</div><div>C</div><div>D</div><div>E</div><div>F</div>
-<div>G</div><div>H</div><div>I</div><div>J</div><div>K</div><div>L</div>
-<div>M</div><div>N</div><div>O</div><div>P</div><div>Q</div><div>R</div>
-<div>S</div><div>T</div><div>U</div><div>V</div><div>W</div><div>X</div>
-</section>
+<div class="container">
+<h1>🎉 Choisis ton mot ! 🎉</h1>
+<p>Dans le dictionnaire :</p>
 
-<!-- Tableau des scores -->
-<section>
-<h3>Tableau des scores</h3>
-<table id="scoreboard">
-<thead>
-<tr>
-<th>Joueur 1</th>
-<th>Joueur 2</th>
-<th>Joueur 3</th>
-<th>Joueur 4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td id="p1">0</td>
-<td id="p2">0</td>
-<td id="p3">0</td>
-<td id="p4">0</td>
-</tr>
-</tbody>
-</table>
-</section>
+<select id="wordSelect">
+<option value="">--Choisis un mot--</option>
+<option value="Bonjour">Bonjour</option>
+<option value="Amour">Amour</option>
+<option value="Joie">Joie</option>
+<option value="Soleil">Soleil</option>
+<option value="Liberté">Liberté</option>
+<option value="Aventure">Aventure</option>
+</select>
 
-<!-- Formulaire pour saisir un mot -->
-<section>
-<form id="answerForm">
-<input id="answerInput" placeholder="Écris ton mot..." autocomplete="off" />
-<button type="submit">Valider</button>
-<small id="msg"></small>
-</form>
-</section>
+<button id="submitBtn">Valider</button>
+</div>
 
-<!-- Script principal -->
-<script type="module" src="app.js"></script>
+<script>
+const btn = document.getElementById('submitBtn');
+const select = document.getElementById('wordSelect');
+
+btn.addEventListener('click', () => {
+const word = select.value;
+if(word) {
+localStorage.setItem('selectedWord', word);
+window.location.href = 'result.html';
+} else {
+alert('Veuillez choisir un mot !');
+}
+});
+</script>
 </body>
 </html>
